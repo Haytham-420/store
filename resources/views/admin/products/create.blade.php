@@ -22,11 +22,11 @@
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">اختر الصنف</label>
-                <select name="category" id="category" class="form-control">
-                    <option value="" selected disabled>اختر الصنف</option>
-                    <option value="1">ملابس</option>
-                    <option value="2">أحذية</option>
-                    <option value="3">اكسسوارات</option>
+                <select name="category" id="category" class= "form-control">
+                    <option value="0" selected disabled>اختر الصنف &#x26DB; </option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">

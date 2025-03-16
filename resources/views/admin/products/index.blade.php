@@ -23,10 +23,10 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
-                            <a href="{{ url('products/edit'.$product->id)}}" class="btn btn-sm btn-warning">
+                            <a href="{{ url('products/edit/'.$product->id)}}" class="btn btn-sm btn-warning">
                                 تعديل
                             </a>
-                            <a href="{{ url('products/delete'.$product->id) }}" class="btn btn-sm btn-danger">
+                            <a href="{{ url('products/delete/'.$product->id) }}" class="btn btn-sm btn-danger">
                                 حذف
                             </a>
                         </td>

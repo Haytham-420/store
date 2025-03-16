@@ -2,7 +2,7 @@
 @section('content')
     <div class="container mt-5">
         <h2 class="mb-4">تعديل المنتج </h2>
-        <form action="{{url('products/update'.$product->id)}}" method="post">
+        <form action="{{url('products/update/'.$product->id)}}" method="post">
             @csrf
             @method('patch')
             <div class="mb-3">
@@ -19,15 +19,16 @@
             </div>
             <div class="mb-3">
                 <label for="descriptionFormControlTextarea" class="form-label">وصف المنتج</label>
-                <textarea class="form-control" id="description" name="description" rows="3">{{$product->price}}</textarea>
+                <textarea class="form-control" id="description" name="description" rows="3">{{$product->description}}</textarea>
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">اختر الصنف</label>
-                <select name="category" id="category" class="form-control">
-                    <option value="{{$product->category_id}}">{{$product->category_id}}</option>
-                    <option value="1">ملابس</option>
-                    <option value="2">أحذية</option>
-                    <option value="3">اكسسوارات</option>
+                <select name="category" id="category" class= "form-control">
+                    <option value="0" disabled>اختر الصنف &#x26DB; </option>
+                    <option selected value="{{$category_name->id}}">{{$category_name->name}}</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view("admin.products.create");
+        $categories = Category::all();
+        return view("admin.products.create", compact("categories"));
     }
 
 
@@ -38,17 +41,13 @@ class ProductController extends Controller
     {
         //
     }
-
-    // /**
-    //  * Show the form for editing the specified resource
-    //  *
-    //  * @param App\Models\Admin\Product $product;
-    //  * @return \Illuminate\Contracts\View\View
-    //  */
+ 
     public function edit($id)
     {
         $product = Product::find($id);
-        return view("admin.products.edit", compact("product"));
+        $categories = Category::all();
+        $category_name = Category::find($product->category_id);
+        return view('admin.products.edit', compact('product', 'categories','category_name'));
     }
 
     public function update(Request $request, $id)
@@ -63,8 +62,9 @@ class ProductController extends Controller
         $product->save();
         return redirect('products');
     }
-    public function destroy($id) {
-      Product::find($id)->delete();
-      return redirect()->back();
+    public function destroy($id)
+    {
+        Product::find($id)->delete();
+        return redirect()->back();
     }
 }
