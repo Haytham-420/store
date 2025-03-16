@@ -14,13 +14,13 @@
                 <!-- Example Product Row -->
                 @foreach ($categories as $category)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $category->id }}</th>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <a href="{{ url('categories/edit'.$category->id)}}" class="btn btn-sm btn-warning">
+                            <a href="{{ url('categories/edit/'.$category->id)}}" class="btn btn-sm btn-info">
                                 تعديل
                             </a>
-                            <a href="{{ url('categories/delete'.$category->id) }}" class="btn btn-sm btn-danger">
+                            <a href="{{ url('categories/delete/'.$category->id) }}" class="btn btn-sm btn-danger">
                                 حذف
                             </a>
                         </td>

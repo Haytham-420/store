@@ -17,13 +17,13 @@
                 <!-- Example Product Row -->
                 @foreach ($products as $product)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $product->id }}</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->category_id}}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
-                            <a href="{{ url('products/edit/'.$product->id)}}" class="btn btn-sm btn-warning">
+                            <a href="{{ url('products/edit/'.$product->id)}}" class="btn btn-sm btn-info">
                                 تعديل
                             </a>
                             <a href="{{ url('products/delete/'.$product->id) }}" class="btn btn-sm btn-danger">

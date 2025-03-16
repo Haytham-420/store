@@ -31,13 +31,6 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-
-    // /**
-    //  * Show the form for editing the specified resource
-    //  *
-    //  * @param App\Models\Admin\Category $category;
-    //  * @return \Illuminate\Contracts\View\View
-    //  */
     public function edit($id)
     {
         $category = Category::find($id);
@@ -53,7 +46,7 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect('categories');
-    } 
+    }
 
     public function destroy($id)
     {
