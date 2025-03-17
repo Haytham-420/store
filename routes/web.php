@@ -2,12 +2,11 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+// Dashboard Routes
 Route::get('products', [ProductController::class, 'index']);
 Route::get('products/create', [ProductController::class, 'create']);
 Route::post('products/store', [ProductController::class, 'store']);
@@ -21,3 +20,6 @@ Route::post('categories/store', [CategoryController::class, 'store']);
 Route::get('categories/edit/{id}', [CategoryController::class, 'edit']);
 Route::get('categories/delete/{id}', [CategoryController::class, 'destroy']);
 Route::patch('categories/update/{id}', [CategoryController::class, 'update']);
+
+// Front Page Routes
+Route::get('/', [FrontController::class, 'index']);
