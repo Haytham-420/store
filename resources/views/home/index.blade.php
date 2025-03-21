@@ -25,7 +25,7 @@
 
 
     <!-- Marketing messaging and featurettes
-                      ================================================== -->
+                                  ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
@@ -48,22 +48,25 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
+            @inject('productController', 'App\Http\Controllers\ProductController')
             @foreach ($products as $product)
-                <div class="col-lg-4 d-flex align-items-stretch">
-                    <div class="product-card">
-                        <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
-                                dy=".3em">140x140</text>
-                        </svg>
-
-                        <h2 class="fw-normal">{{$product->name}}</h2>
-                        <p>{{$product->description}}</p>
-                        <p><a class="btn btn-secondary mt-auto" href="#">عرض التفاصيل</a></p>
+                <div class="col-md-4">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong
+                                class="d-inline-block mb-1 text-primary">{{$productController->getCategoryName($product)}}</strong>
+                            <h5 class="mb-1">{{$product->name}}</h5>
+                            <div class="mb-1 text-muted">${{$product->price}}</div>
+                            <p class="card-text mb-auto" style="height: 50px; overflow: hidden;">{{$product->description}}</p>
+                            <a class="btn btn-secondary " href="#">عرض التفاصيل</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img src="https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg" alt="Product Image" width="200" height="250" class="bd-placeholder-img">
+                        </div>
                     </div>
-                </div><!-- /.col-lg-4 -->
+                </div>
+
+                {{-- end --}}
             @endforeach
         </div><!-- /.row -->
 

@@ -47,7 +47,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $categories = Category::all();
         $category_name = Category::find($product->category_id);
-        return view('admin.products.edit', compact('product', 'categories','category_name'));
+        return view('admin.products.edit', compact('product', 'categories', 'category_name'));
     }
 
     public function update(Request $request, $id)
@@ -67,4 +67,10 @@ class ProductController extends Controller
         Product::find($id)->delete();
         return redirect()->back();
     }
+    public function getCategoryName($product)
+    {
+        $category = Category::find($product->category_id);
+        return $category ? $category->name : 'Unknown';
+    }
+
 }
