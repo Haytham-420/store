@@ -18,14 +18,16 @@ class CategoryController extends Controller
         return view("admin.categories.create");
     }
 
-
-
     public function store(Request $request)
     {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        // Create a new category
         $category = new Category;
-
         $category->name = $request->name;
-
         $category->save();
 
         return redirect()->back();
@@ -39,10 +41,14 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        // Find the category and update it
         $category = Category::find($id);
-
         $category->name = $request->name;
-
         $category->save();
 
         return redirect('categories');

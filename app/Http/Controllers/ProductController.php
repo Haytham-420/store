@@ -67,10 +67,4 @@ class ProductController extends Controller
         Product::find($id)->delete();
         return redirect()->back();
     }
-    public function getCategoryName($product)
-    {
-        $category = Category::find($product->category_id);
-        return $category ? $category->name : 'Unknown';
-    }
-
 }

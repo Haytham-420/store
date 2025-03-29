@@ -9,11 +9,7 @@ use App\Models\Category;
 
 class FrontController extends Controller
 {
-    // public  function index(){
-    //     $products = Product::all();
-    //     return view('home.index',compact('products'));
-    // }
-
+   
     public function index(Request $request)
     {
         $category = $request->input('category');

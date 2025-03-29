@@ -14,7 +14,7 @@
             </div>
             <div class="mb-3">
                 <label for="priceFormControlInput" class="form-label">السعر</label>
-                <input type="number" class="form-control" id="price" name="price" placeholder="السعر">
+                <input type="number" class="form-control" id="price" name="price" placeholder="السعر" step="0.01">
             </div>
             <div class="mb-3">
                 <label for="descriptionFormControlTextarea" class="form-label">وصف المنتج</label>
