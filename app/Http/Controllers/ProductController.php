@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view("admin.products.index", compact("products"));
     }
 
@@ -60,7 +60,7 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         $product->save();
-        return redirect('products');
+        return redirect('admin/products');
     }
     public function destroy($id)
     {

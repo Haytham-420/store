@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container mt-5">
-        <a href="{{ url('products/create') }}" class="btn btn-primary mb-3">إضافة منتج جديد</a>
+        <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">إضافة منتج جديد</a>
         <h2 class="mb-4">قائمة المنتجات</h2>
         <table class="table table-bordered table-striped">
             <thead>
@@ -16,18 +16,18 @@
             </thead>
             <tbody>
                 <!-- Example Product Row -->
-                @foreach ($products as $product)
+                @foreach ($products as $key => $product)
                     <tr>
-                        <th scope="row">{{ $product->id }}</th>
+                        <th scope="row">{{ ++$key }}</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->category->name}}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
-                            <a href="{{ url('products/edit/'.$product->id)}}" class="btn btn-sm btn-info">
+                            <a href="{{ url('admin/products/edit/'.$product->id)}}" class="btn btn-sm btn-info">
                                 تعديل
                             </a>
-                            <a href="{{ url('products/delete/'.$product->id) }}" class="btn btn-sm btn-danger">
+                            <a href="{{ url('admin/products/delete/'.$product->id) }}" class="btn btn-sm btn-danger">
                                 حذف
                             </a>
                         </td>
@@ -36,5 +36,6 @@
 
             </tbody>
         </table>
+        {{$products->links()}}
     </div>
 @endsection

@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view("admin.categories.index", compact("categories"));
     }
 
@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        return redirect('categories');
+        return redirect('admin/categories');
     }
 
     public function destroy($id)
