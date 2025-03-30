@@ -14,8 +14,9 @@
                 </div>
             @endif
 
+            <!-- Email Field -->
             <div class="form-floating">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                <input id="email" type="email" class="form-control rounded @error('email') is-invalid @enderror"
                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                     placeholder="name@example.com">
                 <label for="email">{{ __('Email Address') }}</label>

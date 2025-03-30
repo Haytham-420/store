@@ -9,8 +9,9 @@
             <h1 class="h3 mb-3 fw-normal">{{ __('Confirm Password') }}</h1>
             <p>{{ __('Please confirm your password before continuing.') }}</p>
 
+            <!-- Password Field -->
             <div class="form-floating">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                <input id="password" type="password" class="form-control rounded @error('password') is-invalid @enderror"
                     name="password" required autocomplete="current-password" placeholder="Password">
                 <label for="password">{{ __('Password') }}</label>
                 @error('password')

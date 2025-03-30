@@ -9,8 +9,9 @@
                 height="57">
             <h1 class="h3 mb-3 fw-normal">{{ __('Reset Password') }}</h1>
 
+            <!-- Email Field -->
             <div class="form-floating">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                <input id="email" type="email" class="form-control rounded-0 rounded-top @error('email') is-invalid @enderror"
                     name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
                     placeholder="name@example.com">
                 <label for="email">{{ __('Email Address') }}</label>
@@ -21,8 +22,9 @@
                 @enderror
             </div>
 
+            <!-- Password Field -->
             <div class="form-floating">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                <input id="password" type="password" class="form-control rounded-0 mb-0 @error('password') is-invalid @enderror"
                     name="password" required autocomplete="new-password" placeholder="New Password">
                 <label for="password">{{ __('Password') }}</label>
                 @error('password')
@@ -32,9 +34,10 @@
                 @enderror
             </div>
 
+            <!-- Confirm Password Field -->
             <div class="form-floating">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-                    autocomplete="new-password" placeholder="Confirm Password">
+                <input id="password-confirm" type="password" class="form-control rounded-bottom"
+                    name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                 <label for="password-confirm">{{ __('Confirm Password') }}</label>
             </div>
 
