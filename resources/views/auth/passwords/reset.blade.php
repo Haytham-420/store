@@ -24,7 +24,7 @@
 
             <!-- Password Field -->
             <div class="form-floating">
-                <input id="password" type="password" class="form-control rounded-0 mb-0 @error('password') is-invalid @enderror"
+                <input id="password" type="password" class="form-control border-bottom-0 rounded-0 mb-0 @error('password') is-invalid @enderror"
                     name="password" required autocomplete="new-password" placeholder="New Password">
                 <label for="password">{{ __('Password') }}</label>
                 @error('password')

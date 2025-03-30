@@ -11,7 +11,7 @@
             <!-- Name Field -->
             <div class="form-floating">
                 <input id="name" type="text"
-                    class="form-control rounded-0 rounded-top @error('name') is-invalid @enderror" name="name"
+                    class="form-control rounded-0 border-bottom-0 rounded-top @error('name') is-invalid @enderror" name="name"
                     value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
                 <label for="name">{{ __('Name') }}</label>
                 @error('name')
@@ -48,7 +48,7 @@
             <!-- Confirm Password Field -->
             <div class="form-floating">
                 <input id="password-confirm" type="password"
-                    class="form-control rounded-bottom mb-0 @error('password_confirmation') is-invalid @enderror"
+                    class="form-control rounded-bottom border-top-0 @error('password_confirmation') is-invalid @enderror"
                     name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                 <label for="password-confirm">{{ __('Confirm Password') }}</label>
                 @error('password_confirmation')
