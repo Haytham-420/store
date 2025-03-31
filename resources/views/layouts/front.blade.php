@@ -168,7 +168,7 @@
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-light btn btn-secondary text-decoration-none dropdown-toggle"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('images/Haytham-pfp-600.png')}}" alt="meow user" width="40" height="40"
+                        <img src="{{asset('images/Haytham-pfp-600.png')}}" alt="meow user" width="32" height="32"
                             class="rounded-circle">
                         {{ Auth::user()->name }}
                     </a>

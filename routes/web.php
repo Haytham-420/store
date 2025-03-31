@@ -27,7 +27,9 @@ Route::prefix("admin")->group(function () {
 });
 
 // Front Page Routes
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', function () {
+    return redirect('/home');
+});
 
 Route::get('/welcome', function () {
     return view('welcome');

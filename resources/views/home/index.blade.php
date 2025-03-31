@@ -1,16 +1,41 @@
 @extends('layouts.front')
 @section('content')
     <div class="container py-3">
-        <div class="row mb-4">
-            <div class="col-lg-12 text-center">
-                @if (session('status'))
+        <div class="row pt-5 mb-5">
+            @auth
+                <div class="alert alert-success alert-dismissible fade show mt-4 mb-2" role="alert">
+                    تم تسجيل الدخول بنجاح!
+                    <strong>مرحباً بك {{ Auth::user()->name }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="قريب"></button>
+                </div>
+            @endauth
+            {{-- @if (session('error'))
+                <div class="col-lg-12 pt-5 text-center">
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                </div>
+            @endif
+            @if (session('success'))
+                <div class="col-lg-12 pt-5 text-center">
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
+            @if (session('status'))
+                <div class="col-lg-12 pt-5 text-center">
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
-                @endif
+                </div>
+            @endif --}}
 
-                <h2>{{ __('مرحباً بك في متجرنا !') }}</h1>
-            </div>
+            {{-- <div class="col-lg-12 pt-5 text-center">
+                <h2>{{ __('مرحباً بك في متجرنا !') }}</h2>
+            </div> --}}
+
+
         </div>
 
         {{-- <div class="card-body">
@@ -24,17 +49,23 @@
         </div> --}}
 
         <!-- Category Filter -->
-        <form method="GET" action="{{ url('/') }}"
-            style="background-color: #9ebad6; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-            <div class="form-group">
-                <label for="category" style=" margin-bottom: 15px;">افرز حسب الصنف:</label>
-                <select name="category" id="category" class="form-control" onchange="this.form.submit()">
-                    <option value="">جميع الأصناف</option>
-                    @foreach ($categories as $cat)
-                        <option value="{{ $cat->id }}" {{ $cat->id == $category ? 'selected' : '' }}>
-                            {{ $cat->name }}</option>
-                    @endforeach
-                </select>
+
+        <form method="GET" action="{{ url('/home') }}">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="input-group mb-3 ">
+                        <span class="input-group-text p-2 bg-secondary text-light" id="basic-addon1">افرز حسب الصنف:</span>
+                        <select name="category" id="category" class="form-control text-dark bg-light dropdown"
+                            aria-label="اختر الصنف" aria-describedby="basic-addon1" onchange="this.form.submit()">
+                            <option class="collapsed" value="">جميع الأصناف</option>
+                            @foreach ($categories as $cat)
+                                <option value="{{ $cat->id }}" {{ $cat->id == $category ? 'selected' : '' }}>
+                                    {{ $cat->name }}</option>
+                            @endforeach
+                        </select>
+                        <span class="input-group-text p-3 bg-secondary dropdown-toggle text-light"></span>
+                    </div>
+                </div>
             </div>
         </form>
 
@@ -62,38 +93,11 @@
                         </div>
                     </div>
                 </div>
-
-
                 {{-- end --}}
             @endforeach
-
-            @php
-                $count = 0; // Initialize the counter
-            @endphp
-
-            @while ($count < 20) <!-- Corrected the condition -->
-                @php
-                    $count++;
-                @endphp
-                <div class="col-md-4">
-                    <div
-                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-1 text-primary">meow</strong>
-                            <h5 class="mb-1">meow</h5>
-                            <div class="mb-1 text-muted">$meow</div>
-                            <p class="card-text mb-auto" style="height: 50px; overflow: hidden;">meow</p>
-                            <a class="btn btn-secondary" href="#">عرض التفاصيل</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg"
-                                alt="Product Image" width="200" height="250" class="bd-placeholder-img">
-                        </div>
-                    </div>
-                </div>
-            @endwhile
         </div><!-- /.row -->
 
+        {{$products->links()}}
 
         <!-- START THE FEATURETTES -->
 

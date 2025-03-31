@@ -15,9 +15,9 @@ class FrontController extends Controller
         $categories = Category::all();
 
         if ($category) {
-            $products = Product::where('category_id', $category)->get();
+            $products = Product::where('category_id', $category)->paginate(9);
         } else {
-            $products = Product::all();
+            $products = Product::paginate(9);
         }
 
         return view('home.index', compact('products', 'categories', 'category'));
