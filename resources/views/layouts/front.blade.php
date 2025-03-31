@@ -140,32 +140,56 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Overview</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Inventory</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Customers</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Products</a></li>
+                    <li><a href="#" class="nav-link px-2 text-secondary">الرئيسية</a></li>
+                    <li><a href="{{ route('products.index') }}" class="nav-link px-2 text-white">المنتجات</a></li>
+                    <li><a href="{{ route('categories.index') }}" class="nav-link px-2 text-white">الأصناف</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">الدعم الفني</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    <input type="search" class="form-control" placeholder="ابحث..." aria-label="Search">
                 </form>
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <a href="{{ route('login') }}" class="d-block mx-2 link-light btn btn-secondary text-decoration-none">
+                            {{ __('Login') }}
+                        </a>
+                    @endif
+
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="d-block mx-2 link-light btn btn-secondary text-decoration-none">
+                        {{ __('Register') }}
+                    </a>
+                    @endif
+                @else
+
 
                 <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-white text-decoration-none dropdown-toggle"
+                    <a href="#" class="d-block link-light btn btn-secondary text-decoration-none dropdown-toggle"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                        <img src="{{asset('images/Haytham-pfp-600.png')}}" alt="meow user" width="40" height="40"
                             class="rounded-circle">
+                        {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu bg-dark text-small">
-                        <li><a class="dropdown-item text-white" href="#">New project...</a></li>
-                        <li><a class="dropdown-item text-white" href="#">Settings</a></li>
+                        <li><a class="dropdown-item text-white" href="#">cart</a></li>
                         <li><a class="dropdown-item text-white" href="#">Profile</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Checkout</a></li>
                         <li>
                             <hr class="dropdown-divider bg-light ">
                         </li>
-                        <li><a class="dropdown-item text-white" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                            {{ __('تسجيل الخروج') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form></li>
                     </ul>
                 </div>
+                @endguest
             </div>
         </div>
     </header>
