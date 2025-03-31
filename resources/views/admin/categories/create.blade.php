@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container mt-5">
+    <div class="container pt-5 mt-5">
         <h2 class="mb-4"> أضف صنف جديد</h2>
         <form action="{{route('categories.store')}}" method="post">
             @csrf

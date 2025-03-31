@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container mt-5">
+    <div class="container pt-5 mt-5">
         <h2 class="mb-4">أضف منتج جديد</h2>
-        <form action="{{route('products.store')}}" method="post">
+        <form action="{{ route('products.store') }}" method="post">
             @csrf
-            <div class="mb-3">
-                <label for="nameFormControlInput" class="form-label">اسم المنتج</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="اسم المنتج">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">اسم المنتج</span>
+                <input type="text" id="name" name="name" class="form-control" placeholder="منتح جديد" aria-label="الاسم"
+                    aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
                 <label for="quantityFormControlInput" class="form-label">الكمية</label>
@@ -25,7 +26,7 @@
                 <select name="category" id="category" class="form-control">
                     <option value="0" selected disabled>اختر الصنف &#x26DB; </option>
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>

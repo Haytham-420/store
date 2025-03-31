@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container mt-5">
+    <div class="container pt-5 mt-5">
         <h2 class="mb-4">تعديل الصنف </h2>
         <form action="{{url('admin/categories/update/' . $category->id)}}" method="post">
             @csrf

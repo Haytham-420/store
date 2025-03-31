@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container mt-5">
+    <div class="container pt-5 mt-5">
         <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">إضافة منتج جديد</a>
         <h2 class="mb-4">قائمة المنتجات</h2>
         <table class="table table-bordered table-striped">

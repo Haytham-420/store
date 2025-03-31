@@ -12,10 +12,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel-rtl/">
 
 
-
-
-
-    <link href="{{asset('assets/dist/css/bootstrap.rtl.min.css')}}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/dist/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -72,38 +70,104 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('assets/dist/css/carousel.rtl.css')}}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/dist/css/carousel.rtl.css') }}" rel="stylesheet"> --}}
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/dist/css/dashboard.rtl.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/headers.css')}}" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">شرائح العرض</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="تبديل التنقل">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">الصفحة الرئيسية</a>
+    {{-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">اسم الشركة</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="عرض/إخفاء لوحة التنقل">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="بحث"
+            aria-label="بحث">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                {{-- <a class="nav-link px-3" href="#">تسجيل الخروج</a> --}}
+    <!-- Authentication Links -->
+    {{-- @guest
+        @if (Route::has('login'))
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+        @endif
+
+        @if (Route::has('register'))
+            <li class="nav-item">
+                <a class="nav-link px-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
+        @endif
+    @else
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link px-3 dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item px-3 " href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                    {{ __('تسجيل الخروج') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endguest
+    </div>
+    </div>
+    </header> --}}
+
+
+    <header class="p-3  mb-3 fixed-top text-bg-dark shadow border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-secondary">Overview</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Inventory</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Customers</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Products</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-white text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                            class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu bg-dark text-small">
+                        <li><a class="dropdown-item text-white" href="#">New project...</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Settings</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider bg-light ">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">حلقة الوصل</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">رابط غير مفعل</a>
-                        </li>
+                        <li><a class="dropdown-item text-white" href="#">Sign out</a></li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="بحث" aria-label="بحث">
-                        <button class="btn btn-outline-success" type="submit">بحث</button>
-                    </form>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <main>
@@ -115,11 +179,12 @@
     <!-- FOOTER -->
     <footer class="container">
         <p class="float-end"><a href="#">عد إلى الأعلى</a></p>
-        <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a href="#">شروط
+        <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a
+                href="#">شروط
                 الاستخدام</a></p>
     </footer>
 
-    <script src="{{asset('assets/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/dist/js/bootstrap.bundle.min.js') }}"></script>
 
 
 </body>
