@@ -6,7 +6,7 @@
             @csrf
             <img class="mb-4" src="{{ asset('assets/brand/bootstrap-logo.svg') }}" alt="" width="72"
                 height="57">
-            <h1 class="h3 mb-3 fw-normal">{{ __('Register') }}</h1>
+            <h1 class="h3 mb-3 fw-normal">{{ __('Please Register') }}</h1>
 
             <!-- Name Field -->
             <div class="form-floating">
@@ -58,9 +58,9 @@
                 @enderror
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{ __('Register') }}</button>
+            <button class="btn btn-lg btn-info mt-3" type="submit">{{ __('Register') }}</button>
             <p class="mt-3 mb-3 text-muted">Already have an account?</p>
-            <a class="w-60 btn btn-md btn-info" role="button" href="{{ route('login') }}">Sign in</a>
+            <a class="btn btn-md btn-primary" role="button" href="{{ route('login') }}">Log in</a>
             <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
     </main>

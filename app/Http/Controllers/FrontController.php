@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
-
 class FrontController extends Controller
 {
     public function index(Request $request)
@@ -15,7 +14,7 @@ class FrontController extends Controller
         $categories = Category::all();
 
         if ($category) {
-            $products = Product::where('category_id', $category)->paginate(9);
+            $products = Product::where('category_id', $category)->paginate(9)->appends(['category' => $category]);
         } else {
             $products = Product::paginate(9);
         }

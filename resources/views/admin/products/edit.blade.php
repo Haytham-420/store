@@ -43,7 +43,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <input type="submit" value="احفظ" class="btn btn-lg btn-info p-3">
+                <input type="submit" value="احفظ" class="btn btn-lg btn-success p-3">
             </div>
         </form>
     </div>

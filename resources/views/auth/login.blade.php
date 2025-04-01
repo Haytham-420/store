@@ -6,7 +6,7 @@
             @csrf
             <img class="mb-4" src="{{ asset('assets/brand/bootstrap-logo.svg') }}" alt="" width="72"
                 height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
 
             <div class="form-floating">
                 <input type="email" id="email" name="email"
@@ -43,9 +43,9 @@
                         {{ old('remember') ? 'checked' : '' }}> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary" type="submit">Log in</button>
             <p class="mt-3 mb-3 text-muted">Don't have an account?</p>
-            <a class="w-60 btn btn-md btn-info" role="button" href="{{route('register')}}">Register a new memebership</a>
+            <a class="btn btn-md btn-info" role="button" href="{{route('register')}}">Register a new account</a>
             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}

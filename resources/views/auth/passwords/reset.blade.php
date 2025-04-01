@@ -11,8 +11,9 @@
 
             <!-- Email Field -->
             <div class="form-floating">
-                <input id="email" type="email" class="form-control rounded-0 rounded-top @error('email') is-invalid @enderror"
-                    name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
+                <input id="email" type="email"
+                    class="form-control rounded-0 rounded-top @error('email') is-invalid @enderror" name="email"
+                    value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
                     placeholder="name@example.com">
                 <label for="email">{{ __('Email Address') }}</label>
                 @error('email')
@@ -24,7 +25,8 @@
 
             <!-- Password Field -->
             <div class="form-floating">
-                <input id="password" type="password" class="form-control border-bottom-0 rounded-0 mb-0 @error('password') is-invalid @enderror"
+                <input id="password" type="password"
+                    class="form-control border-bottom-0 rounded-0 mb-0 @error('password') is-invalid @enderror"
                     name="password" required autocomplete="new-password" placeholder="New Password">
                 <label for="password">{{ __('Password') }}</label>
                 @error('password')
@@ -41,7 +43,7 @@
                 <label for="password-confirm">{{ __('Confirm Password') }}</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{ __('Reset Password') }}</button>
+            <button class="btn btn-lg btn-success mt-3" type="submit">{{ __('Reset Password') }}</button>
             <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
     </main>

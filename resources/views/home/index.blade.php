@@ -1,59 +1,23 @@
 @extends('layouts.front')
 @section('content')
     <div class="container py-3">
-        <div class="row pt-5 mb-5">
+        <div class="row pt-5 mb-3 justify-content-center">
             @auth
-                <div class="alert alert-success alert-dismissible fade show mt-4 mb-2" role="alert">
-                    تم تسجيل الدخول بنجاح!
-                    <strong>مرحباً بك {{ Auth::user()->name }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="قريب"></button>
+                <div class="alert alert-success alert-dismissible fade col-md-6 show mt-5" role="alert">
+                    <p class="h5"> تم تسجيل الدخول بنجاح!
+                        <strong>مرحباً بك {{ Auth::user()->name }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="قريب"></button>
+                    </p>
                 </div>
             @endauth
-            {{-- @if (session('error'))
-                <div class="col-lg-12 pt-5 text-center">
-                    <div class="alert alert-danger" role="alert">
-                        {{ session('error') }}
-                    </div>
-                </div>
-            @endif
-            @if (session('success'))
-                <div class="col-lg-12 pt-5 text-center">
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
-                    </div>
-                </div>
-            @endif
-            @if (session('status'))
-                <div class="col-lg-12 pt-5 text-center">
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                </div>
-            @endif --}}
-
-            {{-- <div class="col-lg-12 pt-5 text-center">
-                <h2>{{ __('مرحباً بك في متجرنا !') }}</h2>
-            </div> --}}
-
-
         </div>
-
-        {{-- <div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            {{ __('You are logged in!') }}
-        </div> --}}
 
         <!-- Category Filter -->
 
         <form method="GET" action="{{ url('/home') }}">
             <div class="row justify-content-center">
                 <div class="col-md-4">
-                    <div class="input-group mb-3 ">
+                    <div class="input-group mt-3 mb-3 ">
                         <span class="input-group-text p-2 bg-secondary text-light" id="basic-addon1">افرز حسب الصنف:</span>
                         <select name="category" id="category" class="form-control text-dark bg-light dropdown"
                             aria-label="اختر الصنف" aria-describedby="basic-addon1" onchange="this.form.submit()">
@@ -97,7 +61,7 @@
             @endforeach
         </div><!-- /.row -->
 
-        {{$products->links()}}
+        {{ $products->links() }}
 
         <!-- START THE FEATURETTES -->
 

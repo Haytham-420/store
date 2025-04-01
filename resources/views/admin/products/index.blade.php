@@ -24,7 +24,7 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
-                            <a href="{{ url('admin/products/edit/'.$product->id)}}" class="btn btn-sm btn-info">
+                            <a href="{{ url('admin/products/edit/'.$product->id)}}" class="btn btn-sm btn-warning">
                                 تعديل
                             </a>
                             <a href="{{ url('admin/products/delete/'.$product->id) }}" class="btn btn-sm btn-danger">

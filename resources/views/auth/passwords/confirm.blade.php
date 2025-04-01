@@ -21,7 +21,7 @@
                 @enderror
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{ __('Confirm Password') }}</button>
+            <button class=" btn btn-lg btn-success mt-3" type="submit">{{ __('Confirm Password') }}</button>
             @if (Route::has('password.request'))
                 <a class="btn btn-link mt-2" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
             @endif

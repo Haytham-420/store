@@ -18,7 +18,7 @@
                         <th scope="row">{{ ++$key }}</th>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <a href="{{ url('admin/categories/edit/' . $category->id) }}" class="btn btn-sm btn-info">
+                            <a href="{{ url('admin/categories/edit/' . $category->id) }}" class="btn btn-sm btn-warning">
                                 تعديل
                             </a>
                             <a href="{{ url('admin/categories/delete/' . $category->id) }}" class="btn btn-sm btn-danger">
