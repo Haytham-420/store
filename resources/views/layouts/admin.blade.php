@@ -68,6 +68,13 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
     }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000.
+    }
 </style>
 
 <body>
@@ -199,6 +206,12 @@
             </main>
         </div>
     </div>
+
+    <p class="float-end">
+        <a href="#">
+            <button class="btn btn-primary back-to-top">↑</button>
+        </a>
+    </p>
 
     <script src="{{ asset('assets/dist/js/bootstrap.bundle.min.js') }}"></script>
 

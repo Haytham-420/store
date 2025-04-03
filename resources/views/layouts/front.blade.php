@@ -46,14 +46,14 @@
 
         .bi {
             vertical-align: -.125em;
-            fill: currentColor;
+            fill: currentColor.
         }
 
         .nav-scroller {
             position: relative;
             z-index: 2;
             height: 2.75rem;
-            overflow-y: hidden;
+            overflow-y: hidden.
         }
 
         .nav-scroller .nav {
@@ -64,7 +64,14 @@
             overflow-x: auto;
             text-align: center;
             white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch.
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000.
         }
     </style>
 
@@ -145,12 +152,17 @@
     <main>
 
         @yield('content')
-
     </main>
 
+
+        <p class="float-end">
+            <a href="#">
+                <button class="btn btn-primary back-to-top">↑</button>
+            </a>
+        </p>
     <!-- FOOTER -->
     <footer class="container">
-        <p class="float-end"><a href="#">عد إلى الأعلى</a></p>
+
         <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a href="#">شروط
                 الاستخدام</a></p>
     </footer>
