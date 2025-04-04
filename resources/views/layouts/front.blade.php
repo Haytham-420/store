@@ -110,7 +110,7 @@
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET"
                     action="{{ route('products.search') }}">
-                    <input type="search" name="query" class="form-control" placeholder="ابحث..." aria-label="Search">
+                    <input type="search" name="query" class="form-control" placeholder="ابحث عن منتج..." aria-label="Search">
                 </form>
                 <!-- Authentication Links -->
                 @guest
