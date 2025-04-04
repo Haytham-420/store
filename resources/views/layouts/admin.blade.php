@@ -70,10 +70,16 @@
     }
 
     .back-to-top {
+        background-color: rgb(133, 18, 251);
+        background: :hover:rgb(1, 1, 1);
         position: fixed;
         bottom: 20px;
         left: 20px;
         z-index: 1000.
+    }
+
+    .back-to-top:hover {
+        background: rgb(255, 0, 255);
     }
 </style>
 
@@ -102,19 +108,37 @@
                         </a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="ابحث..." aria-label="Search">
+                <!-- Category Filter -->
+
+                <form method="GET" class="mx-5" action="{{ route('products.index') }}">
+                    <div class="row justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text p-2 bg-secondary text-light" id="basic-addon1">افرز حسب
+                                الصنف:</span>
+                            <select name="category" id="category" class="form-control text-dark bg-light dropdown"
+                                aria-label="اختر الصنف" aria-describedby="basic-addon1" onchange="this.form.submit()">
+                                <option class="collapsed" value="">جميع الأصناف</option>
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}" {{ $cat->id == $category ? 'selected' : '' }}>
+                                        {{ $cat->name }}</option>
+                                @endforeach
+                            </select>
+                            <span class="input-group-text p-3 bg-secondary dropdown-toggle text-light"></span>
+                        </div>
+                    </div>
                 </form>
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
-                        <a href="{{ route('login') }}" class="d-block mx-2 link-light btn btn-primary text-decoration-none">
+                        <a href="{{ route('login') }}"
+                            class="d-block mx-2 link-light btn btn-primary text-decoration-none">
                             {{ __('Login') }}
                         </a>
                     @endif
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="d-block mx-2 link-black btn btn-info text-decoration-none">
+                        <a href="{{ route('register') }}"
+                            class="d-block mx-2 link-black btn btn-info text-decoration-none">
                             {{ __('Register') }}
                         </a>
                     @endif
@@ -208,8 +232,8 @@
     </div>
 
     <p class="float-end">
-        <a href="#">
-            <button class="btn btn-primary back-to-top">↑</button>
+        <a href="#" class="link-light">
+            <button class="btn btn-lg rounded-circle back-to-top">↑</button>
         </a>
     </p>
 

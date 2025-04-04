@@ -68,10 +68,16 @@
         }
 
         .back-to-top {
+            background-color: rgb(133, 18, 251);
+            background: :hover:rgb(1, 1, 1);
             position: fixed;
             bottom: 20px;
             left: 20px;
             z-index: 1000.
+        }
+
+        .back-to-top:hover {
+            background: rgb(255, 0, 255);
         }
     </style>
 
@@ -102,8 +108,9 @@
                         </a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="ابحث..." aria-label="Search">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET"
+                    action="{{ route('products.search') }}">
+                    <input type="search" name="query" class="form-control" placeholder="ابحث..." aria-label="Search">
                 </form>
                 <!-- Authentication Links -->
                 @guest
@@ -155,15 +162,16 @@
     </main>
 
 
-        <p class="float-end">
-            <a href="#">
-                <button class="btn btn-primary back-to-top">↑</button>
-            </a>
-        </p>
+    <p class="float-end">
+        <a href="#" class="link-light">
+            <button class="btn btn-lg rounded-circle back-to-top">↑</button>
+        </a>
+    </p>
+
     <!-- FOOTER -->
     <footer class="container">
 
-        <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a href="#">شروط
+        <p>&copy; 2002–2025 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a href="#">شروط
                 الاستخدام</a></p>
     </footer>
 

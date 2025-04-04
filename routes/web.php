@@ -31,6 +31,8 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

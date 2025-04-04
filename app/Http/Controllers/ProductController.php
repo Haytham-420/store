@@ -14,10 +14,19 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(10);
-        return view("admin.products.index", compact("products"));
+        $category = $request->input('category');
+        $categories = Category::all();
+
+        if ($category) {
+            $products = Product::where('category_id', $category)->paginate(10)->appends(['category' => $category]);
+        } else {
+            $products = Product::paginate(10);
+        }
+
+        // $products = Product::paginate(10);
+        return view("admin.products.index", compact('products', 'categories', 'category'));
     }
 
 
@@ -70,5 +79,17 @@ class ProductController extends Controller
     {
         Product::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = Product::where('name', 'LIKE', "%{$query}%")->paginate(9);
+        $products->appends(['query' => $query]); // Append the search query to the pagination links
+        return view('home.index', [
+            'products' => $products,
+            'categories' => Category::all(),
+            'category' => null // No specific category is selected during a search
+        ]);
     }
 }
