@@ -109,24 +109,28 @@
                 </ul>
 
                 <!-- Category Filter -->
-
-                <form method="GET" class="mx-5" action="{{ route('products.index') }}">
-                    <div class="row justify-content-center">
-                        <div class="input-group">
-                            <span class="input-group-text p-2 bg-secondary text-light" id="basic-addon1">افرز حسب
-                                الصنف:</span>
-                            <select name="category" id="category" class="form-control text-dark bg-light dropdown"
-                                aria-label="اختر الصنف" aria-describedby="basic-addon1" onchange="this.form.submit()">
-                                <option class="collapsed" value="">جميع الأصناف</option>
-                                @foreach ($categories as $cat)
-                                    <option value="{{ $cat->id }}" {{ $cat->id == $category ? 'selected' : '' }}>
-                                        {{ $cat->name }}</option>
-                                @endforeach
-                            </select>
-                            <span class="input-group-text p-3 bg-secondary dropdown-toggle text-light"></span>
+                @if (Route::currentRouteName() === 'products.index')
+                    <form method="GET" class="mx-5" action="{{ route('products.index') }}">
+                        <div class="row justify-content-center">
+                            <div class="input-group">
+                                <span class="input-group-text p-2 bg-secondary text-light" id="basic-addon1">افرز حسب
+                                    الصنف:</span>
+                                <select name="category" id="category" class="form-control text-dark bg-light dropdown"
+                                    aria-label="اختر الصنف" aria-describedby="basic-addon1"
+                                    onchange="this.form.submit()">
+                                    <option class="collapsed" value="">جميع الأصناف</option>
+                                    @foreach ($categories as $cat)
+                                        <option value="{{ $cat->id }}"
+                                            {{ $cat->id == $category ? 'selected' : '' }}>
+                                            {{ $cat->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-text p-3 bg-secondary dropdown-toggle text-light"></span>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                @endif
+
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))

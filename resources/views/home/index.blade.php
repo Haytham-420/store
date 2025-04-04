@@ -1,15 +1,16 @@
 @extends('layouts.front')
 @section('content')
     <div class="container py-3">
+
         <div class="row pt-5 mb-3 justify-content-center">
-            @auth
+            @if (session('login_success'))
                 <div class="alert alert-success alert-dismissible fade col-md-6 show mt-5" role="alert">
-                    <p class="h5"> تم تسجيل الدخول بنجاح!
+                    <p class="h5">{{ session('login_success') }}
                         <strong>مرحباً بك {{ Auth::user()->name }}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="قريب"></button>
                     </p>
                 </div>
-            @endauth
+            @endif
         </div>
 
         <!-- Category Filter -->
