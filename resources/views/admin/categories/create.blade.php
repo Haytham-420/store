@@ -10,7 +10,7 @@
                     value="{{ old('name') }}" aria-label="اسم الصنف" aria-describedby="basic-addon1">
             </div>
             @if ($errors->has('name'))
-                <div class="text-danger">{{ $errors->first('name') }}</div>
+                <div class="text-danger pb-3">{{ $errors->first('name') }}</div>
             @endif
             <div class="mb-3">
                 <input type="submit" value="احفظ" class="btn btn-lg btn-success p-3">

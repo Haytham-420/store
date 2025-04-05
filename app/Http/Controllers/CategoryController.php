@@ -61,7 +61,14 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        Category::find($id)->delete();
-        return redirect()->back();
+        $category = Category::find($id);
+
+        // Check if the category has products
+        if ($category->products()->count() > 0) {
+            return redirect()->back()->withErrors(['error' => 'لا يمكن حذف الصنف لأنه يحتوي على منتجات مرتبطة به.']);
+        }
+
+        $category->delete();
+        return redirect()->back()->with('success', 'تم حذف الصنف بنجاح.');
     }
 }

@@ -1,6 +1,17 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container pt-5 mt-5">
+        {{-- Display Validation Errors --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">إضافة صنف جديد</a>
         <h2 class="mb-4">قائمة الأصناف</h2>
         <table class="table table-bordered table-striped">
@@ -12,7 +23,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example Product Row -->
                 @foreach ($categories as $key => $category)
                     <tr>
                         <th scope="row">{{ ++$key }}</th>

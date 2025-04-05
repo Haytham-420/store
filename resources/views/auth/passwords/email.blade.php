@@ -28,7 +28,7 @@
             </div>
 
             <button class=" btn btn-lg btn-success mt-3" type="submit">{{ __('Send Password Reset Link') }}</button>
-            <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
+            <p class="mt-3 mb-3 text-muted">&copy; 2002–2025</p>
         </form>
     </main>
 @endsection

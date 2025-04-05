@@ -25,7 +25,7 @@
             @if (Route::has('password.request'))
                 <a class="btn btn-link mt-2" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
             @endif
-            <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
+            <p class="mt-3 mb-3 text-muted">&copy; 2002–2025</p>
         </form>
     </main>
 @endsection

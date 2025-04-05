@@ -6,31 +6,44 @@
             @csrf
             <div class="input-group mb-3">
                 <span class="input-group-text p-3" id="basic-addon1">اسم المنتج</span>
-                <input type="text" id="name" name="name" class="form-control p-3" placeholder="منتح جديد"
-                    aria-label="الاسم" aria-describedby="basic-addon1">
+                <input type="text" id="name" name="name" class="form-control p-3" placeholder="منتج جديد"
+                    value="{{ old('name') }}" aria-label="الاسم" aria-describedby="basic-addon1">
             </div>
+            @if ($errors->has('name'))
+                <div class="text-danger pb-3">{{ $errors->first('name') }}</div>
+            @endif
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text p-3" id="basic-addon2">الكمية</span>
                         <input type="number" class="form-control p-3" id="quantity" name="quantity" placeholder="الكمية"
-                            aria-label="الكمية" aria-describedby="basic-addon2">
+                            value="{{ old('quantity') }}" aria-label="الكمية" aria-describedby="basic-addon2">
                     </div>
+                    @if ($errors->has('quantity'))
+                        <div class="text-danger pb-3">{{ $errors->first('quantity') }}</div>
+                    @endif
                 </div>
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text p-3" id="basic-addon3">السعر</span>
                         <input type="number" class="form-control p-3" id="price" name="price" placeholder="السعر"
-                            step="0.01" aria-label="السعر" aria-describedby="basic-addon3">
+                            step="0.01" value="{{ old('price') }}" aria-label="السعر" aria-describedby="basic-addon3">
                     </div>
+                    @if ($errors->has('price'))
+                        <div class="text-danger pb-3">{{ $errors->first('price') }}</div>
+                    @endif
                 </div>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text p-3" id="basic-addon4">وصف المنتج</span>
-                <textarea class="form-control p-3" id="description" name="description" rows="3" aria-label="وصف المنتج"
-                    aria-describedby="basic-addon4"></textarea>
+                <textarea class="form-control p-3" id="description" name="description" rows="3" placeholder="وصف المنتج"
+                    aria-label="وصف المنتج" aria-describedby="basic-addon4">{{ old('description') }}</textarea>
             </div>
+            @if ($errors->has('description'))
+                <div class="text-danger pb-3">{{ $errors->first('description') }}</div>
+            @endif
 
             <div class="row justify-content-center">
                 <div class="col-md-4">
@@ -40,11 +53,16 @@
                             aria-describedby="basic-addon5">
                             <option class="p-2" value="0" selected disabled>اختر الصنف &#x26DB; </option>
                             @foreach ($categories as $category)
-                                <option class="p-2" value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option class="p-2" value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                         <span class="input-group-text py-2 px-4 bg-secondary dropdown-toggle text-light"></span>
                     </div>
+                    @if ($errors->has('category'))
+                        <div class="text-danger pb-3">{{ $errors->first('category') }}</div>
+                    @endif
                 </div>
             </div>
 

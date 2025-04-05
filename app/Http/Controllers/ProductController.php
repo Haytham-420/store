@@ -25,7 +25,6 @@ class ProductController extends Controller
             $products = Product::paginate(10);
         }
 
-        // $products = Product::paginate(10);
         return view("admin.products.index", compact('products', 'categories', 'category'));
     }
 
@@ -40,6 +39,16 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer',
+            'price' => 'required|numeric',
+            'category' => 'required|exists:categories,id',
+            'description' => 'nullable|string|max:1000',
+        ]);
+
+        // Create a new product
         $product = new Product;
         $product->name = $request->name;
         $product->quantity = $request->quantity;
@@ -65,6 +74,16 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer',
+            'price' => 'required|numeric',
+            'category' => 'required|exists:categories,id',
+            'description' => 'nullable|string|max:1000',
+        ]);
+
+        // Find the product and update it
         $product = Product::find($id);
         $product->name = $request->name;
         $product->quantity = $request->quantity;
