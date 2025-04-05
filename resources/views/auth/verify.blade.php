@@ -18,6 +18,6 @@
             <button type="submit"
                 class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
         </form>
-        <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
+        <p class="mt-3 mb-3 text-muted">&copy; 2002–2025</p>
     </main>
 @endsection

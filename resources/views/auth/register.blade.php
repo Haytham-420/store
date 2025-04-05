@@ -61,7 +61,7 @@
             <button class="btn btn-lg btn-info mt-3" type="submit">{{ __('Register') }}</button>
             <p class="mt-3 mb-3 text-muted">Already have an account?</p>
             <a class="btn btn-md btn-primary" role="button" href="{{ route('login') }}">Log in</a>
-            <p class="mt-3 mb-3 text-muted">&copy; 2017–2022</p>
+            <p class="mt-3 mb-3 text-muted">&copy; 2002–2025</p>
         </form>
     </main>
 @endsection
