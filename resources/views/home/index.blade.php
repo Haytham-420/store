@@ -53,10 +53,8 @@
                             <a class="btn btn-secondary " href="#">عرض التفاصيل</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg"
-                                alt="Product Image" width="200" height="250" class="bd-placeholder-img">
-                            {{-- <img src="{{asset('images/Haytham-pfp-600.png')}}" alt="Product Image" width="200" height="250"
-                                class="bd-placeholder-img" style="object-fit: contain;"> --}}
+                            <img src="{{ asset('images/product-placeholder-wp.jpg') }}" alt="Product Image" width="200"
+                                height="250" class="bd-placeholder-img">
                         </div>
                     </div>
                 </div>
